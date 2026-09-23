@@ -3,13 +3,21 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "catalog": "bun run --watch src/services/catalog.ts",
+    "orders": "bun run --watch src/services/orders.ts",
+    "client": "bun run --watch src/services/client.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun run src/migrate.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "drizzle-orm": "^0.45.3",
+    "elysia": "latest",
+    "ioredis": "^6.0.0",
+    "kafkajs": "^2.2.4"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "drizzle-kit": "^0.31.11"
   },
   "module": "src/index.js"
 }
